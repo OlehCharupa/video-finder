@@ -9,7 +9,10 @@ loadMoreButton.textContent = "Load More ..."
 loadMoreButton.classList.add("loadmore-button")
 
 loadMoreButton.addEventListener("click", loadMore)
-
+// window.addEventListener("scroll", debounce(e => {
+//     console.log(e.target);
+//     loadMore()
+// }, 1000))
 
 refs.videoSearch.addEventListener("input", debounce(e => {
     // e.preventDefault();
@@ -19,8 +22,6 @@ refs.videoSearch.addEventListener("input", debounce(e => {
     rengeApi()
     refs.videoSearch.value = ""
 }, 1000))
-
-
 
 function rengeApi() {
     apiService.getFetch().then(data => renderList(data.hits))
